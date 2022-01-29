@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.example.proyectoandroid._4view.categoria.CategoryFragment"
+        android:label="fragment_category"
+        tools:layout="@layout/fragment_category" >
+        <action
+            android:id="@+id/action_categoryFragment_to_productoFragment"
+            app:destination="@id/productoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productoFragment"
+        android:name="com.example.proyectoandroid._4view.producto.ProductoFragment"
+        android:label="fragment_producto"
+        tools:layout="@layout/fragment_producto">
+        <argument
+            android:name="categoryId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_productoFragment_to_detailProductFragment"
+            app:destination="@id/detailProductFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailProductFragment"
+        android:name="com.example.proyectoandroid._4view.productoDetail.DetailProductFragment"
+        android:label="fragment_detail_product"
+        tools:layout="@layout/fragment_detail_product" >
+        <argument
+            android:name="prod_id"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/carritoFragment"
+        android:name="com.example.proyectoandroid._4view.carrito.CarritoFragment"
+        android:label="fragment_carrito"
+        tools:layout="@layout/fragment_carrito" >
+        <action
+            android:id="@+id/action_carritoFragment_to_ordenFragment"
+            app:destination="@id/ordenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment3"
+        android:name="com.example.proyectoandroid._4view.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment3_to_setupProfileFragment"
+            app:destination="@id/setupProfileFragment" />
+        <action
+            android:id="@+id/action_profileFragment3_to_updateProfileFragment"
+            app:destination="@id/updateProfileFragment" />
+        <action
+            android:id="@+id/action_profileFragment3_to_direccionFragment"
+            app:destination="@id/direccionFragment" />
+        <action
+            android:id="@+id/action_profileFragment3_to_pedidosRealizadoFragment"
+            app:destination="@id/pedidosRealizadoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.proyectoandroid._4view.auth.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.proyectoandroid._4view.auth.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/setupProfileFragment"
+        android:name="com.example.proyectoandroid._4view.profile.UpdateImageProfileFragment"
+        android:label="fragment_setup_profile"
+        tools:layout="@layout/fragment_setup_profile" />
+    <fragment
+        android:id="@+id/updateProfileFragment"
+        android:name="com.example.proyectoandroid._4view.profile.UpdateProfileFragment"
+        android:label="fragment_update_profile"
+        tools:layout="@layout/fragment_update_profile" />
+    <fragment
+        android:id="@+id/direccionFragment"
+        android:name="com.example.proyectoandroid._4view.profile.DireccionFragment"
+        android:label="fragment_direccion"
+        tools:layout="@layout/fragment_direccion" />
+    <fragment
+        android:id="@+id/ordenFragment"
+        android:name="com.example.proyectoandroid._4view.ordencompra.OrdenFragment"
+        android:label="fragment_orden"
+        tools:layout="@layout/fragment_orden" >
+        <action
+            android:id="@+id/action_ordenFragment_to_direccionFragment"
+            app:destination="@id/direccionFragment" />
+        <argument
+            android:name="montoTotalCarrito"
+            app:argType="float" />
+    </fragment>
+    <fragment
+        android:id="@+id/pedidosRealizadoFragment"
+        android:name="com.example.proyectoandroid._4view.profile.pedidorealizado.PedidosRealizadoFragment"
+        android:label="fragment_pedidos_realizado"
+        tools:layout="@layout/fragment_pedidos_realizado" >
+        <action
+            android:id="@+id/action_pedidosRealizadoFragment_to_detallePedidoFragment"
+            app:destination="@id/detallePedidoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detallePedidoFragment"
+        android:name="com.example.proyectoandroid._4view.profile.pedidorealizado.DetallePedidoFragment"
+        android:label="fragment_detalle_pedido"
+        tools:layout="@layout/fragment_detalle_pedido" >
+        <argument
+            android:name="orderId"
+            app:argType="string" />
+    </fragment>
+</navigation>
